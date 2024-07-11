@@ -82,7 +82,7 @@ html {
     touch-action: manipulation;
 }
 
-html, body {
+html, body, #root {
     height: 100%;
 }
 
@@ -268,17 +268,12 @@ main, #contentWrapper, #content {
     row-gap: 1.5em;
 }
 
-#homePage #contentWrapper {
-    /*flex-basis: 50%;*/
-}
-
 #homePage #buttonWrapper {
     flex-grow: 1;
     display: flex;
     flex-direction: column;
     justify-content: center;
     justify-self: center;
-    /*flex-basis: 50%;*/
 }
 
 #homePage .button {
