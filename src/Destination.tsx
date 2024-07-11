@@ -43,27 +43,27 @@ type Destination = {
 export default function Destination() {
   const [activeDestination, setActiveDestination] = useState<Destination>(destinations[0])
   const currentIndex = destinations.findIndex(d => d.name === activeDestination.name) + 1
-  const innerContentRef = useRef<HTMLDivElement>(null)
+  const contentRef = useRef<HTMLDivElement>(null)
   const planetRef = useRef<HTMLImageElement>(null)
 
   const handleChangeDestination = (i: number) => (e: MouseEvent) => {
     e.preventDefault()
-    const innerContentElem = innerContentRef.current
+    const contentElem = contentRef.current
     const planetElem = planetRef.current
-    if (!innerContentElem || !planetElem) return
-    innerContentRef.current.classList.add('fadeOut')
+    if (!contentElem || !planetElem) return
+    contentRef.current.classList.add('fadeOut')
     planetRef.current.classList.add('fadeOut')
 
     setTimeout(() => {
       const nextDestination = destinations[i]
       setActiveDestination(nextDestination)
-      innerContentElem.classList.remove('fadeOut')
+      contentElem.classList.remove('fadeOut')
       planetElem.classList.remove('fadeOut')
-      innerContentElem.classList.add('fadeIn')
+      contentElem.classList.add('fadeIn')
       planetElem.classList.add('fadeIn')
       setTimeout(() => {
         planetElem.classList.remove('fadeIn')
-        innerContentElem.classList.remove('fadeIn')
+        contentElem.classList.remove('fadeIn')
       }, 500)
     }, 500)
   }
@@ -80,7 +80,7 @@ export default function Destination() {
       </div>
 
       <div id="contentWrapper">
-        <div id="content">
+        <div id="content" ref={contentRef}>
           <ul id="destinationNav">
             {destinations.map((d, i) => (
               <li key={i} className={d.name === activeDestination.name ? 'selected' : ''}>
@@ -89,23 +89,21 @@ export default function Destination() {
             ))}
           </ul>
 
-          <div id="innerContent" ref={innerContentRef}>
-            <h3>{activeDestination.name}</h3>
-            <p>{activeDestination.description}</p>
+          <h3>{activeDestination.name}</h3>
+          <p>{activeDestination.description}</p>
 
-            <div className="hr"></div>
+          <div className="hr"></div>
 
-            <ul id="destinationStats">
-              <li>
-                <small className="xs">Avg. Distance</small>
-                <em className="lg">{activeDestination.distance}</em>
-              </li>
-              <li>
-                <small className="xs">Est. Travel Time</small>
-                <em className="lg">{activeDestination.travelTime}</em>
-              </li>
-            </ul>
-          </div>
+          <ul id="destinationStats">
+            <li>
+              <small className="xs">Avg. Distance</small>
+              <em className="lg">{activeDestination.distance}</em>
+            </li>
+            <li>
+              <small className="xs">Est. Travel Time</small>
+              <em className="lg">{activeDestination.travelTime}</em>
+            </li>
+          </ul>
         </div>
       </div>
     </main>

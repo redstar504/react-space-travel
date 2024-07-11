@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 export default function Home() {
   return (
     <main>
@@ -16,7 +18,7 @@ export default function Home() {
       </div>
 
       <div id="buttonWrapper">
-        <a href="/destination" className="button">Explore</a>
+        <Link to="/destination" className="button">Explore</Link>
       </div>
     </main>
   )
