@@ -132,7 +132,7 @@ small,
     /*margin-bottom: auto;*/
 }
 
-h2#pageTitle strong {
+#pageTitle strong {
     opacity: .25;
     margin-right: 1em;
     font-weight: 700;
@@ -688,6 +688,12 @@ main, #contentWrapper, #content {
         font-size: 1.75em;
     }
 
+    #pageTitle strong {
+        margin: 0;
+        width: 2em;
+        display: inline-block;
+    }
+
     main #contentWrapper {
         text-align: left;
         align-items: center;
@@ -721,6 +727,11 @@ main, #contentWrapper, #content {
     /* Destination page styles */
     #destinationPage {
         background-image: url(/destination/background-destination-desktop.jpg);
+    }
+
+    #destinationPage #content {
+        height: 32em;
+        justify-content: flex-start;
     }
 
     #destinationPage #planetWrapper {
