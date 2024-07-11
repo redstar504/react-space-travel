@@ -45,6 +45,7 @@ button {
     background: none;
     border: none;
     cursor: pointer;
+    padding: 0;
 }
 
 ul {
@@ -309,7 +310,7 @@ main, #contentWrapper, #content {
     column-gap: 2.25em;
 }
 
-#destinationNav a {
+#destinationNav button {
     display: block;
     height: 1.75rem;
     margin-right: -2px; /* small font kerning issue */
@@ -833,7 +834,7 @@ main, #contentWrapper, #content {
 
     #techPage em {
         font-size: 3.5rem;
-        line-height:1.5;
+        line-height: 1.5;
     }
 }
 
