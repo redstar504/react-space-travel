@@ -90,21 +90,21 @@ body {
     font: 400 1em/1.5 Barlow Condensed, sans-serif;
     background-color: var(--dark-blue);
     color: var(--white);
-    background-image: url(home/background-home-mobile.jpg);
+    background-image: url(/home/background-home-mobile.jpg);
     background-size: cover;
     animation: zoomAnimation 60s linear infinite alternate;
     background-attachment: fixed;
 }
 
 #destinationPage {
-    background-image: url(destination/background-destination-mobile.jpg);
+    background-image: url(/destination/background-destination-mobile.jpg);
 }
 
 h1 {
     display: block;
     width: 2.5rem;
     height: 2.5rem;
-    background-image: url(shared/logo.svg);
+    background-image: url(/shared/logo.svg);
     background-size: cover;
     align-self: center;
     text-indent: -999em;
@@ -205,7 +205,7 @@ nav #icon {
     position: absolute;
     top: 2.25em;
     right: 0;
-    background-image: url(shared/icon-hamburger.svg);
+    background-image: url(/shared/icon-hamburger.svg);
     background-size: cover;
     background-position: center center;
     background-repeat: no-repeat;
@@ -213,7 +213,7 @@ nav #icon {
 }
 
 nav #hamburgerToggle:checked + #icon {
-    background-image: url(shared/icon-close.svg);
+    background-image: url(/shared/icon-close.svg);
 }
 
 nav #hamburgerToggle:checked ~ #wrapperForMobileSidebar {
@@ -339,7 +339,7 @@ main, #contentWrapper, #content {
 /* Crew page styles */
 
 #crewPage {
-    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(crew/background-crew-mobile.jpg);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/crew/background-crew-mobile.jpg);
 }
 
 #crewPage #crewImageWrapper {
@@ -396,7 +396,7 @@ main, #contentWrapper, #content {
 /* TECHNOLOGY PAGE STYLES */
 
 #techPage {
-    background-image: url(tech/background-technology-mobile.jpg);
+    background-image: url(/tech/background-technology-mobile.jpg);
     background-size: 375px 110px;
     background-attachment: local;
 }
@@ -455,7 +455,7 @@ main, #contentWrapper, #content {
     }
 
     body {
-        background-image: url(home/background-home-tablet.jpg);
+        background-image: url(/home/background-home-tablet.jpg);
     }
 
     #container {
@@ -542,7 +542,7 @@ main, #contentWrapper, #content {
 
     /* Destination page styles */
     #destinationPage {
-        background-image: url(destination/background-destination-tablet.jpg);
+        background-image: url(/destination/background-destination-tablet.jpg);
     }
 
     #destinationPage #destinationStats {
@@ -572,7 +572,7 @@ main, #contentWrapper, #content {
 
     /* Start crew page styles */
     #crewPage {
-        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(crew/background-crew-tablet.jpg);
+        background-image: linear-gradient(rgba(0, 0, 0, 0.4), rgba(0, 0, 0, 0.4)), url(/crew/background-crew-tablet.jpg);
     }
 
     #crewPage #container {
@@ -616,7 +616,7 @@ main, #contentWrapper, #content {
 
     /* Start tech page styling */
     #techPage {
-        background-image: url(tech/background-technology-desktop.jpg);
+        background-image: url(/tech/background-technology-desktop.jpg);
     }
 
     #techPage #techImageWrapper {
@@ -626,7 +626,7 @@ main, #contentWrapper, #content {
 
 @media (min-width: 68.75em) {
     body {
-        background-image: url(home/background-home-desktop.jpg);
+        background-image: url(/home/background-home-desktop.jpg);
     }
 
     p {
@@ -719,7 +719,7 @@ main, #contentWrapper, #content {
 
     /* Destination page styles */
     #destinationPage {
-        background-image: url(destination/background-destination-desktop.jpg);
+        background-image: url(/destination/background-destination-desktop.jpg);
     }
 
     #destinationPage #planetWrapper {
@@ -784,7 +784,7 @@ main, #contentWrapper, #content {
 
     /* Tech pages styles */
     #techPage {
-        background-image: url(tech/background-technology-desktop.jpg);
+        background-image: url(/tech/background-technology-desktop.jpg);
     }
 
     #techPage main {
