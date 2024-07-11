@@ -2,42 +2,60 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Layout from './Layout.tsx'
 import Home from './Home.tsx'
 import './styles/screen.css'
-import { useLayoutEffect } from 'react'
+import { createContext, useLayoutEffect, useState } from 'react'
 import Destination from './Destination.tsx'
 import Crew from './Crew.tsx'
 import Tech from './Tech.tsx'
 
+type CurrentPageContext = {
+  currentPage?: string
+}
+
+export const CurrentPageContext = createContext({} as CurrentPageContext)
+
 function App() {
   const location = useLocation()
+  const [currentPage, setCurrentPage] = useState<string>()
 
   useLayoutEffect(() => {
+    let page: string | null
+    
     switch (location.pathname) {
       case '/':
-        document.body.id = 'homePage'
+        page = 'homePage'
         break
       case '/destination':
-        document.body.id = 'destinationPage'
+        page = 'destinationPage'
         break
       case '/crew':
-        document.body.id = 'crewPage'
+        page = 'crewPage'
         break
       case '/tech':
-        document.body.id = 'techPage'
+        page = 'techPage'
         break
+      default:
+        page = null
     }
-  }, [location.pathname])
+    
+    if (!page || currentPage === page) return
+
+    document.body.id = page
+    setCurrentPage(page)
+  }, [currentPage, location.pathname])
 
   return (
-    <div id="container">
-      <Routes>
-        <Route path="/" element={<Layout />}>
-          <Route index element={<Home />} />
-          <Route path="destination" element={<Destination />} />
-          <Route path="crew" element={<Crew />} />
-          <Route path="tech" element={<Tech />} />
-        </Route>
-      </Routes>
-    </div>
+    <CurrentPageContext.Provider value={{ currentPage }}>
+      <div id="container">
+        <Routes>
+          <Route path="/" element={<Layout />}>
+            <Route index element={<Home />} />
+            <Route path="destination" element={<Destination />} />
+            <Route path="crew" element={<Crew />} />
+            <Route path="tech" element={<Tech />} />
+          </Route>
+        </Routes>
+      </div>
+    </CurrentPageContext.Provider>
   )
 }
 

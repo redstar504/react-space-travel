@@ -1,6 +1,10 @@
 import { Link, Outlet } from 'react-router-dom'
+import { useContext } from 'react'
+import { CurrentPageContext } from './App.tsx'
 
 export default function Layout() {
+  const { currentPage } = useContext(CurrentPageContext)
+
   return (
     <>
       <header>
@@ -12,16 +16,16 @@ export default function Layout() {
           <label htmlFor="hamburgerToggle" id="icon"></label>
           <div id="wrapperForMobileSidebar">
             <ol>
-              <li className="active">
+              <li className={currentPage === 'homePage' ? 'active' : ''}>
                 <Link to="/">Home</Link>
               </li>
-              <li>
+              <li className={currentPage === 'destinationPage' ? 'active' : ''}>
                 <Link to="/destination">Destination</Link>
               </li>
-              <li>
+              <li className={currentPage === 'crewPage' ? 'active' : ''}>
                 <Link to="/crew">Crew</Link>
               </li>
-              <li>
+              <li className={currentPage === 'techPage' ? 'active' : ''}>
                 <Link to="/tech">Technology</Link>
               </li>
             </ol>
