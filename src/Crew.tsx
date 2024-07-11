@@ -7,7 +7,7 @@ export default function Crew() {
       </h2>
 
       <div id="crewImageWrapper">
-        <img id="crewImage" src="/crew/image-douglas-hurley.webp" alt="Cmdr. Douglas Hurley" />
+        <img id="crewImage" src="/react-space-travel/crew/image-douglas-hurley.webp" alt="Cmdr. Douglas Hurley" />
       </div>
 
       <div id="contentWrapper">

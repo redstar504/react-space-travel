@@ -7,8 +7,8 @@ export default function Tech() {
       </h2>
 
       <div id="techImageWrapper">
-        <img src="/tech/image-launch-vehicle-landscape.jpg" alt="Launch Vehicle" id="landscapeImage" />
-        <img src="/tech/image-launch-vehicle-portrait.jpg" alt="Launch Vehicle" id="portraitImage" />
+        <img src="/react-space-travel/tech/image-launch-vehicle-landscape.jpg" alt="Launch Vehicle" id="landscapeImage" />
+        <img src="/react-space-travel/tech/image-launch-vehicle-portrait.jpg" alt="Launch Vehicle" id="portraitImage" />
       </div>
 
       <nav id="techNav">

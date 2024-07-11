@@ -7,7 +7,7 @@ export default function Destination() {
       </h2>
 
       <div id="planetWrapper">
-        <img className="planet" src="/destination/image-moon.png" alt="the moon" />
+        <img className="planet" src="/react-space-travel/destination/image-moon.png" alt="the moon" />
       </div>
 
       <div id="contentWrapper">
