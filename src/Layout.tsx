@@ -1,11 +1,11 @@
-import { Outlet } from 'react-router-dom'
+import { Link, Outlet } from 'react-router-dom'
 
 export default function Layout() {
   return (
     <>
       <header>
         <h1>
-          <a href="/index">Space Travel</a>
+          <Link to="/">Space Travel</Link>
         </h1>
         <nav id="siteNav">
           <input id="hamburgerToggle" type="checkbox" hidden />
@@ -13,16 +13,16 @@ export default function Layout() {
           <div id="wrapperForMobileSidebar">
             <ol>
               <li className="active">
-                <a href="/index">Home</a>
+                <Link to="/">Home</Link>
               </li>
               <li>
-                <a href="/destination">Destination</a>
+                <Link to="/destination">Destination</Link>
               </li>
               <li>
-                <a href="/crew">Crew</a>
+                <Link to="/crew">Crew</Link>
               </li>
               <li>
-                <a href="/tech">Technology</a>
+                <Link to="/tech">Technology</Link>
               </li>
             </ol>
           </div>

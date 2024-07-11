@@ -3,6 +3,9 @@ import Layout from './Layout.tsx'
 import Home from './Home.tsx'
 import './styles/screen.css'
 import { useLayoutEffect } from 'react'
+import Destination from './Destination.tsx'
+import Crew from './Crew.tsx'
+import Tech from './Tech.tsx'
 
 function App() {
   const location = useLocation()
@@ -29,6 +32,9 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout />}>
           <Route index element={<Home />} />
+          <Route path="destination" element={<Destination />} />
+          <Route path="crew" element={<Crew />} />
+          <Route path="tech" element={<Tech />} />
         </Route>
       </Routes>
     </div>
