@@ -1,4 +1,4 @@
-import { useState, MouseEvent } from 'react'
+import { MouseEvent, useRef, useState } from 'react'
 import padNumber from './util/padNumber.ts'
 
 const destinations = [
@@ -28,7 +28,7 @@ const destinations = [
     imagePath: '/react-space-travel/destination/image-titan.webp',
     description: 'he only moon known to have a dense atmosphere other than Earth, Titan is a home away from home (just a few hundred degrees colder!). As a bonus, you get striking views of the Rings of Saturn.',
     distance: '1.6 bil. km',
-    travelTime: '7 years'
+    travelTime: '7 years',
   },
 ]
 
@@ -43,11 +43,29 @@ type Destination = {
 export default function Destination() {
   const [activeDestination, setActiveDestination] = useState<Destination>(destinations[0])
   const currentIndex = destinations.findIndex(d => d.name === activeDestination.name) + 1
+  const innerContentRef = useRef<HTMLDivElement>(null)
+  const planetRef = useRef<HTMLImageElement>(null)
 
   const handleChangeDestination = (i: number) => (e: MouseEvent) => {
     e.preventDefault()
-    const nextDestination = destinations[i]
-    setActiveDestination(nextDestination)
+    const innerContentElem = innerContentRef.current
+    const planetElem = planetRef.current
+    if (!innerContentElem || !planetElem) return
+    innerContentRef.current.classList.add('fadeOut')
+    planetRef.current.classList.add('fadeOut')
+
+    setTimeout(() => {
+      const nextDestination = destinations[i]
+      setActiveDestination(nextDestination)
+      innerContentElem.classList.remove('fadeOut')
+      planetElem.classList.remove('fadeOut')
+      innerContentElem.classList.add('fadeIn')
+      planetElem.classList.add('fadeIn')
+      setTimeout(() => {
+        planetElem.classList.remove('fadeIn')
+        innerContentElem.classList.remove('fadeIn')
+      }, 500)
+    }, 500)
   }
 
   return (
@@ -58,7 +76,7 @@ export default function Destination() {
       </h2>
 
       <div id="planetWrapper">
-        <img className="planet" src={activeDestination.imagePath} alt={activeDestination.name} />
+        <img ref={planetRef} className="planet" src={activeDestination.imagePath} alt={activeDestination.name} />
       </div>
 
       <div id="contentWrapper">
@@ -71,21 +89,23 @@ export default function Destination() {
             ))}
           </ul>
 
-          <h3>{activeDestination.name}</h3>
-          <p>{activeDestination.description}</p>
+          <div id="innerContent" ref={innerContentRef}>
+            <h3>{activeDestination.name}</h3>
+            <p>{activeDestination.description}</p>
 
-          <div className="hr"></div>
+            <div className="hr"></div>
 
-          <ul id="destinationStats">
-            <li>
-              <small className="xs">Avg. Distance</small>
-              <em className="lg">{activeDestination.distance}</em>
-            </li>
-            <li>
-              <small className="xs">Est. Travel Time</small>
-              <em className="lg">{activeDestination.travelTime}</em>
-            </li>
-          </ul>
+            <ul id="destinationStats">
+              <li>
+                <small className="xs">Avg. Distance</small>
+                <em className="lg">{activeDestination.distance}</em>
+              </li>
+              <li>
+                <small className="xs">Est. Travel Time</small>
+                <em className="lg">{activeDestination.travelTime}</em>
+              </li>
+            </ul>
+          </div>
         </div>
       </div>
     </main>

@@ -77,6 +77,16 @@ a {
     }
 }
 
+.fadeOut {
+    opacity: 0;
+    transition: opacity 500ms ease-out;
+}
+
+.fadeIn {
+    opacity: 1;
+    transition: opacity 500ms ease-out;
+}
+
 /* end animation */
 
 html {
@@ -259,7 +269,7 @@ nav #wrapperForMobileSidebar a::before {
     font-weight: 700;
 }
 
-main, #contentWrapper, #content {
+main, #contentWrapper, #content, #innerContent {
     display: flex;
     flex-grow: 1;
     flex-direction: column;
@@ -700,7 +710,8 @@ main, #contentWrapper, #content {
         flex-grow: 0;
     }
 
-    main #content {
+    main #content,
+    main #innerContent {
         width: 32em;
         text-align: left;
         align-items: stretch;
@@ -729,7 +740,8 @@ main, #contentWrapper, #content {
         background-image: url(/destination/background-destination-desktop.jpg);
     }
 
-    #destinationPage #content {
+    #destinationPage #content,
+    #destinationPage #innerContent {
         height: 32em;
         justify-content: flex-start;
     }
